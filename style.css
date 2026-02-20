@@ -1,0 +1,164 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: #0f172a;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #06b6d4;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('images/hero-bg.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(15,23,42,0.9), rgba(37,99,235,0.6));
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+    padding: 40px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.hero h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg,#2563eb,#06b6d4);
+    border-radius: 30px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(6, 212, 68, 0.4);
+}
+
+/* Glass Cards */
+.glass-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Section */
+.section {
+    padding: 120px 80px;
+    background: url('images/section-bg.jpg') center/cover fixed;
+}
+
+/* Floating Shapes */
+.floating {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(6,182,212,0.2);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 6s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    50% {transform: translateY(-40px);}
+    100% {transform: translateY(0);}
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #020617;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.price-card {
+    background: rgba(255,255,255,0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 250px;
+    transition: 0.3s;
+}
+
+.price-card:hover {
+    transform: scale(1.05);
+    background: rgba(6,182,212,0.2);
+}
+.testimonial { display: none; }
+.testimonial.active { display: block; }

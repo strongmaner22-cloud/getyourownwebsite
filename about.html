@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About | DevStudio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h2>DevStudio</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="section" style="background:url('images/about-bg.jpg') center/cover fixed;">
+    <div class="floating" style="top:30%; right:10%;"></div>
+
+    <div class="glass-card">
+        <h2>About Our Agency</h2>
+        <p>
+            We specialize in building high-converting websites for small businesses
+            and startups. Our mission is to help brands stand out online and attract
+            more customers through modern design and smart technology.
+        </p>
+        <br>
+        <img src="https://media.istockphoto.com/id/2207159331/photo/group-of-young-multi-ethnic-startup-business-team-collaborating-on-project-in-modern-office.jpg?s=612x612&w=0&k=20&c=wh2y4_SY2TymLpS2IpWUJrmoIQToTOlgXm7bL-ivRCg=" width="100%" style="border-radius:15px;">
+    </div>
+</section>
+
+<footer>
+    © 2026 DevStudio
+</footer>
+
+<script src="script.js"> // Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', function(){
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 50
+        ? "rgba(0,0,0,0.8)"
+        : "rgba(0,0,0,0.4)";
+});
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+  let testimonials = document.querySelectorAll('.testimonial');
+let index = 0;
+
+setInterval(() => {
+    testimonials[index].classList.remove('active');
+    index = (index + 1) % testimonials.length;
+    testimonials[index].classList.add('active');
+}, 4000);
+</script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function(){
+    emailjs.init("AkGX4f-u67Smcf3Qj");
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    emailjs.sendForm('service_qd248gc', 'template_ja1hg1k', this)
+    .then(() => {
+        alert("Message Sent Successfully!");
+    }, (error) => {
+        alert("Failed to send message.");
+    });
+});
+</script></script>
+</body>
+</html>

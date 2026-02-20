@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact | DevStudio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <h2>DevStudio</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+
+        <br>
+        <img src="https://media.istockphoto.com/id/2188211582/photo/contact-us-or-customer-support-hotline-businessman-touching-on-virtual-screen-contact-icons.jpg?s=612x612&w=0&k=20&c=aL_OH2_1_qoxRz1yaC2x1gASFRLFr7IXqO7QmmZ_Y_8=" width="100%" style="border-radius:15px;">
+    </div>
+    <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Ready to get your business online?</p>
+    <p><strong>Phone:</strong> +233 0248 667 048</p>
+    <p><strong>Email:</strong> alfredyeboahappiah@gmail.com</p>
+
+    <a class="whatsapp-btn" 
+       href="https://wa.me/233248667048" 
+       target="_blank">
+       Chat on WhatsApp
+    </a>
+</section>
+
+</section>
+
+<footer>
+    © 2026 DevStudio
+</footer>
+
+<script src="script.js">
+     // Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', function(){
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 50
+        ? "rgba(0,0,0,0.8)"
+        : "rgba(0,0,0,0.4)";
+});
+</script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+  let testimonials = document.querySelectorAll('.testimonial');
+let index = 0;
+
+setInterval(() => {
+    testimonials[index].classList.remove('active');
+    index = (index + 1) % testimonials.length;
+    testimonials[index].classList.add('active');
+}, 4000);
+</script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function(){
+    emailjs.init("AkGX4f-u67Smcf3Qj");
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    emailjs.sendForm('service_qd248gc', 'template_ja1hg1k', this)
+    .then(() => {
+        alert("Message Sent Successfully!");
+    }, (error) => {
+        alert("Failed to send message.");
+    });
+});</script>
+</script>
+</body>
+</html>

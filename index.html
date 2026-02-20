@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Premium Web Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <h2>DevStudio</h2>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="floating" style="top:20%; left:10%;"></div>
+    <div class="hero-content">
+        <h1>We Build Beautiful Websites</h1>
+        <p>Helping small businesses & startups grow online with stunning digital experiences.</p>
+        <a href="contact.html" class="btn">Start Your Project</a>
+    </div>
+    <section class="section">
+    <div class="glass-card" data-aos="fade-up">
+        <h2>What Clients Say</h2>
+
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <p>"DevStudio built our startup website and doubled our inquiries!"</p>
+                <h4>- Startup Founder</h4>
+            </div>
+
+            <div class="testimonial">
+                <p>"Professional, modern and fast delivery."</p>
+                <h4>- Business Owner</h4>
+            </div>
+
+            <div class="testimonial">
+                <p>"Best web developer we’ve worked with."</p>
+                <h4>- CEO</h4>
+            </div>
+        </div>
+        <div class="glass-card" data-aos="fade-up"></div>
+    </div>
+</section>
+</section>
+
+<footer>
+    © 2026 DevStudio
+</footer>
+
+<script src="script.js">
+    // Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// Navbar background change on scroll
+window.addEventListener('scroll', function(){
+    const nav = document.querySelector('nav');
+    nav.style.background = window.scrollY > 50
+        ? "rgba(0,0,0,0.8)"
+        : "rgba(0,0,0,0.4)";
+});
+</script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1200,
+    once: true
+  });
+  let testimonials = document.querySelectorAll('.testimonial');
+let index = 0;
+
+setInterval(() => {
+    testimonials[index].classList.remove('active');
+    index = (index + 1) % testimonials.length;
+    testimonials[index].classList.add('active');
+}, 4000);
+</script>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function(){
+    emailjs.init("AkGX4f-u67Smcf3Qj");
+})();
+
+document.getElementById('contact-form').addEventListener('submit', function(e){
+    e.preventDefault();
+
+    emailjs.sendForm('service_qd248gc', 'template_ja1hg1k', this)
+    .then(() => {
+        alert("Message Sent Successfully!");
+    }, (error) => {
+        alert("Failed to send message.");
+    });
+});
+</script>
+</body>
+</html>
